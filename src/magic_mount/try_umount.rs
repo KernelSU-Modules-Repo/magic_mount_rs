@@ -1,14 +1,12 @@
-#![allow(clippy::unreadable_literal)]
-
 #[cfg(any(target_os = "linux", target_os = "android"))]
 use std::{ffi::CString, io, os::fd::RawFd, path::Path, sync::OnceLock};
 
 #[cfg(any(target_os = "linux", target_os = "android"))]
 use anyhow::Result;
 
-const KSU_INSTALL_MAGIC1: u32 = 0xDEADBEEF;
-const KSU_IOCTL_ADD_TRY_UMOUNT: u32 = 0x40004b12;
-const KSU_INSTALL_MAGIC2: u32 = 0xCAFEBABE;
+const KSU_INSTALL_MAGIC1: u32 = 0xDEAD_BEEF;
+const KSU_IOCTL_ADD_TRY_UMOUNT: u32 = 0x4000_4b12;
+const KSU_INSTALL_MAGIC2: u32 = 0xCAFE_BABE;
 #[cfg(any(target_os = "linux", target_os = "android"))]
 static DRIVER_FD: OnceLock<RawFd> = OnceLock::new();
 
