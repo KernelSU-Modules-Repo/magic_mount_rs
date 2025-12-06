@@ -14,13 +14,11 @@ pub struct ModuleInfo {
     pub skip: bool,
 }
 
-fn read_prop<P>(path: P, key: &str) -> Option<String>
+fn read_prop<S>(vaule: S, key: &str) -> Option<String>
 where
-    P: AsRef<Path>,
+    S: AsRef<str> + Into<String>,
 {
-    let file = fs::read_to_string(path).ok()?;
-
-    for line in file.lines() {
+    for line in vaule.as_ref().lines() {
         if line.starts_with(key)
             && let Some((_, value)) = line.split_once('=')
         {
@@ -67,10 +65,11 @@ where
             let id = entry.file_name().to_string_lossy().to_string();
             let prop_path = path.join("module.prop");
 
-            let name = read_prop(&prop_path, "name").unwrap_or_else(|| id.clone());
-            let version = read_prop(&prop_path, "version").unwrap_or_else(|| "unknown".to_string());
+            let prop = fs::read_to_string(prop_path).unwrap_or(String::new());
+            let name = read_prop(&prop, "name").unwrap_or_else(|| id.clone());
+            let version = read_prop(&prop, "version").unwrap_or_else(|| "unknown".to_string());
             let description =
-                read_prop(&prop_path, "description").unwrap_or_else(|| "unknown".to_string());
+                read_prop(&prop, "description").unwrap_or_else(|| "unknown".to_string());
 
             modules.push(ModuleInfo {
                 id,
