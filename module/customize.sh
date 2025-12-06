@@ -1,5 +1,9 @@
 #!/system/bin/sh
 
+if [ -z $KSU ]; then
+  abort "only support KernelSU!!"
+fi
+
 ui_print "- Detecting device architecture..."
 
 # Detect architecture using ro.product.cpu.abi
@@ -18,9 +22,9 @@ ui_print "- Architecture-specific binary installed successfully"
 
 mkdir -p /data/adb/magic_mount
 
-if [ ! -f /data/adb/magic_mount/config.toml ] ; then
+if [ ! -f /data/adb/magic_mount/config.toml ]; then
   ui_print "- Add default config"
-  cat "$MODPATH/config.toml" > /data/adb/magic_mount/config.toml
+  cat "$MODPATH/config.toml" >/data/adb/magic_mount/config.toml
 fi
 
 ui_print "- Installation complete"
