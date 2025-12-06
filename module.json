@@ -1,0 +1,17 @@
+{
+    "metamodule": true,
+    "summary": "Magic Mount-rs", 
+    "sourceUrl": "https://github.com/Tools-cx-app/meta-magic_mount",
+    "additionalAuthors": [
+        {
+            "type": "add",
+            "name": "7a72",
+            "link": "https://github.com/7a72"
+        },
+        {
+            "type": "add",
+            "name": "YuzakiKokuban",
+            "link": "https://github.com/YuzakiKokuban"
+        }
+    ]
+}
