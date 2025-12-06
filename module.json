@@ -1,0 +1,17 @@
+{
+    "metamodule": true,
+    "summary": "An implementation of a metamodule using Magic Mount, Based on MKSU, Template is from meta-overlay.",
+    "sourceUrl": "https://github.com/Tools-cx-app/meta-magic_mount",
+    "additionalAuthors": [
+        {
+            "type": "add",
+            "name": "7a72",
+            "link": "https://github.com/7a72"
+        },
+        {
+            "type": "add",
+            "name": "YuzakiKokuban",
+            "link": "https://github.com/YuzakiKokuban"
+        }
+    ]
+}
