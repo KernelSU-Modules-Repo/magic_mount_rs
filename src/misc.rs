@@ -56,19 +56,6 @@ fn verify_module_safety() -> Result<()> {
 }
 
 fn init_list() {
-    /*super::magic_mount::node::IGNORE_LIST.get_or_init(|| {
-        fs::read_to_string(defs::IGNORE_LIST_PATH).map_or_else(
-            |_| None,
-            |f| {
-                Some(
-                    f.lines()
-                        .filter(|s| !s.starts_with('#'))
-                        .map(std::string::ToString::to_string)
-                        .collect(),
-                )
-            },
-        )
-    });*/
     super::parser::COMMAND_LIST
         .get_or_init(|| super::parser::parser_custom(defs::CUSTOM_LIST_PATH));
 }
