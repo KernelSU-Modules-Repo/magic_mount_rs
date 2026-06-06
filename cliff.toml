@@ -79,3 +79,6 @@ topo_order = false
 # Order of commits in each group/release within the changelog.
 # Allowed values: newest, oldest
 sort_commits = "newest"
+commit_parsers = [
+    { message = "^update", skip = true },
+]
